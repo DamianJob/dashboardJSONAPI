@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Live Data Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .card {
+      border: 1px solid #ddd;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      max-width: 400px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    img {
+      max-width: 100%;
+      border-radius: 4px;
+    }
+    .value {
+      font-size: 1.5rem;
+      color: #007acc;
+    }
+  </style>
+</head>
+<body>
+
+<h1>📊 Live Dashboard</h1>
+<div id="dashboard"></div>
+
+<script>
+  fetch("https://script.google.com/macros/s/AKfycbxdF9ug4RcdIU0RmRlB5IjdvQbn-ajCnYKSuOsUGFJwjbrwwLjrQdgBVannl1Xtuw7Qsw/exec")
+    .then(res => res.json())
+    .then(data => {
+      const container = document.getElementById("dashboard");
+      data.forEach(entry => {
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <img src="${entry.ImageURL}" alt="${entry.Price}" />
+          <h2>${entry.Price}</h2>
+          <p class="value">${entry.Small} Small</p>
+          <p class="value">${entry.Medium} Medium</p>
+          <p class="value">${entry.Large} Large</p>
+          <p class="value">${entry.XL} XL</p>
+          <p class="value">${entry.XXL} XXL</p>
+        `;
+        container.appendChild(card);
+      });
+    })
+    .catch(err => {
+      console.error("Error loading data", err);
+    });
+</script>
+
+</body>
+</html>
