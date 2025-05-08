@@ -9,7 +9,18 @@
 <body>
 
   <h1 class="blinking">DONNIE STORE TANZANIA</h1>
-  <div id="dashboard"></div>
+
+  <div class="carousel-container">
+    <div id="carousel" class="carousel"></div>
+  </div>
+
+  <div id="product-info" class="product-info">
+    <p class="value">Small = <span id="smallVal"></span> Pieces</p>
+    <p class="value">Medium = <span id="mediumVal"></span> Pieces</p>
+    <p class="value">Large = <span id="largeVal"></span> Pieces</p>
+    <p class="value">XL = <span id="xlVal"></span> Pieces</p>
+    <p class="value">XXL = <span id="xxlVal"></span> Pieces</p>
+  </div>
 
   <footer>
     <p>
@@ -19,27 +30,42 @@
   </footer>
 
   <script>
+    let productData = [];
+
     fetch("https://script.google.com/macros/s/AKfycbxdF9ug4RcdIU0RmRlB5IjdvQbn-ajCnYKSuOsUGFJwjbrwwLjrQdgBVannl1Xtuw7Qsw/exec")
       .then(res => res.json())
       .then(data => {
-        const container = document.getElementById("dashboard");
-        data.forEach(entry => {
-          const card = document.createElement("div");
-          card.className = "card";
-          card.innerHTML = `
-            <img src="${entry.ImageURL}" alt="${entry.Price}" />
-            <p class="value"> Small = ${entry.Small} Pieces</p>
-            <p class="value"> Medium = ${entry.Medium} Pieces</p>
-            <p class="value"> Large = ${entry.Large} Pieces</p>
-            <p class="value"> XL = ${entry.XL} Pieces</p>
-            <p class="value"> XXL = ${entry.XXL} Pieces</p>
-          `;
-          container.appendChild(card);
+        productData = data;
+        const carousel = document.getElementById("carousel");
+        data.forEach((entry, index) => {
+          const img = document.createElement("img");
+          img.src = entry.ImageURL;
+          img.alt = `Product ${index + 1}`;
+          img.className = "carousel-image";
+          img.dataset.index = index;
+          carousel.appendChild(img);
         });
+        updateProductInfo(0);
       })
-      .catch(err => {
-        console.error("Error loading data", err);
-      });
+      .catch(err => console.error("Error loading data", err));
+
+    function updateProductInfo(index) {
+      const entry = productData[index];
+      if (!entry) return;
+      document.getElementById("smallVal").textContent = entry.Small;
+      document.getElementById("mediumVal").textContent = entry.Medium;
+      document.getElementById("largeVal").textContent = entry.Large;
+      document.getElementById("xlVal").textContent = entry.XL;
+      document.getElementById("xxlVal").textContent = entry.XXL;
+    }
+
+    document.addEventListener("scroll", () => {
+      const carousel = document.getElementById("carousel");
+      const scrollLeft = carousel.scrollLeft;
+      const childWidth = carousel.firstChild?.offsetWidth || 1;
+      const index = Math.round(scrollLeft / childWidth);
+      updateProductInfo(index);
+    });
   </script>
 
 </body>
