@@ -1,0 +1,58 @@
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #111;
+  color: white;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.blinking {
+  animation: blinker 1.2s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+.card {
+  border: 1px solid #444;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  max-width: 400px;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+  background-color: #222;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+.value {
+  font-size: 1.2rem;
+  color: white;
+}
+
+footer {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+footer a {
+  color: #00bfff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
