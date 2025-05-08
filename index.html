@@ -2,46 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Donnie Store Tanzania</title>
+  <title>Live Data Dashboard</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- SECTION 1: Introduction -->
-  <section class="section">
-    <div class="content">
-      <img src="logo.jpg" alt="DonnieStoreTZ Logo" class="logo" />
-      <h1 class="blinking">DONNIE STORE TANZANIA</h1>
-      <p class="intro">
-        Karibuni sana Duka letu la DonniestoreTZ ujipatie bidhaa bora mjini Daslam. Tunapatikana Kariakoo mtaa wa Kongo na Narungombe.
-        Ukishashuka mwendo kasi wa Msimbazi ukaingia mtaa wa Narungombe moja kwa moja hadi ghorofa la kwanza unakua ushafika. <br><br>
-        Kwa wale wanaotumia Google Maps, <a href="https://maps.google.com" target="_blank">bonyeza link hii kutufikia</a>.
-      </p>
-    </div>
-  </section>
+  <h1 class="blinking">DONNIE STORE TANZANIA</h1>
+  <div id="dashboard"></div>
 
-  <!-- SECTION 2: Products -->
-  <section class="section">
-    <div class="content">
-      <div id="dashboard" class="dashboard-grid"></div>
-    </div>
-  </section>
+  <footer>
+    <p>
+      <a href="https://www.instagram.com/donnie_store_tz?igsh=MTI4cTR1aHVxbjZ2eA==" target="_blank">Instagram</a> |
+      <a href="https://wa.me/255764669212" target="_blank">WhatsApp</a>
+    </p>
+  </footer>
 
-  <!-- SECTION 3: Contact -->
-  <section class="section">
-    <div class="content">
-      <div class="contact">
-        <h2>Wasiliana nasi</h2>
-        <p>
-          <a href="https://wa.me/255764669212" target="_blank">📱 Whatsapp</a> |
-          <a href="https://www.instagram.com/donnie_store_tz?igsh=MTI4cTR1aHVxbjZ2eA==" target="_blank">📸 Instagram</a>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Script to fetch products from Google Sheets -->
   <script>
     fetch("https://script.google.com/macros/s/AKfycbxdF9ug4RcdIU0RmRlB5IjdvQbn-ajCnYKSuOsUGFJwjbrwwLjrQdgBVannl1Xtuw7Qsw/exec")
       .then(res => res.json())
@@ -52,11 +28,11 @@
           card.className = "card";
           card.innerHTML = `
             <img src="${entry.ImageURL}" alt="${entry.Price}" />
-            <p class="value">Small = ${entry.Small} Pieces</p>
-            <p class="value">Medium = ${entry.Medium} Pieces</p>
-            <p class="value">Large = ${entry.Large} Pieces</p>
-            <p class="value">XL = ${entry.XL} Pieces</p>
-            <p class="value">XXL = ${entry.XXL} Pieces</p>
+            <p class="value"> Small = ${entry.Small} Pieces</p>
+            <p class="value"> Medium = ${entry.Medium} Pieces</p>
+            <p class="value"> Large = ${entry.Large} Pieces</p>
+            <p class="value"> XL = ${entry.XL} Pieces</p>
+            <p class="value"> XXL = ${entry.XXL} Pieces</p>
           `;
           container.appendChild(card);
         });
@@ -68,4 +44,3 @@
 
 </body>
 </html>
-
