@@ -79,3 +79,54 @@ footer a:hover {
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
 }
+
+#carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 20px auto;
+  max-width: 90vw;
+}
+
+#carousel {
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  display: flex;
+  max-width: 600px;
+  margin: 0 20px;
+}
+
+#imageTrack {
+  display: flex;
+  gap: 16px;
+}
+
+.carousel-img {
+  width: 200px;
+  height: auto;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.product-info {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+
+.nav {
+  background-color: #333;
+  color: white;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+  user-select: none;
+}
+
+.nav:hover {
+  background-color: #555;
+}
+
