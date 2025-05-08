@@ -53,3 +53,23 @@ footer .icon {
   vertical-align: middle;
   margin-right: 5px;
 }
+
+#carousel {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  display: flex;
+  max-width: 600px;
+  margin: 0 20px;
+  scroll-behavior: smooth;
+}
+
+.carousel-img {
+  width: 200px;
+  height: auto;
+  border-radius: 8px;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+}
+
+
