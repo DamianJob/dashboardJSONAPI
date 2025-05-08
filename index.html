@@ -8,8 +8,6 @@
 </head>
 <body>
 
- <body>
-
   <!-- SECTION 1: Introduction -->
   <section class="section">
     <div class="content">
@@ -26,7 +24,7 @@
   <!-- SECTION 2: Products -->
   <section class="section">
     <div class="content">
-      <div id="dashboard"></div>
+      <div id="dashboard" class="dashboard-grid"></div>
     </div>
   </section>
 
@@ -43,7 +41,7 @@
     </div>
   </section>
 
-  <!-- Fetch Products -->
+  <!-- Script to fetch products from Google Sheets -->
   <script>
     fetch("https://script.google.com/macros/s/AKfycbxdF9ug4RcdIU0RmRlB5IjdvQbn-ajCnYKSuOsUGFJwjbrwwLjrQdgBVannl1Xtuw7Qsw/exec")
       .then(res => res.json())
@@ -69,5 +67,5 @@
   </script>
 
 </body>
-
 </html>
+
