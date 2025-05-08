@@ -26,7 +26,7 @@
 </head>
 <body>
 
-<h1>📊 Live Dashboard</h1>
+<h1> DONNIE STORE TANZANIA</h1>
 <div id="dashboard"></div>
 
 <script>
@@ -40,11 +40,11 @@
         card.innerHTML = `
           <img src="${entry.ImageURL}" alt="${entry.Price}" />
           <h2>${entry.Price}</h2>
-          <p class="value"> Small ${entry.Small} Small</p>
-          <p class="value">${entry.Medium} Medium</p>
-          <p class="value">${entry.Large} Large</p>
-          <p class="value">${entry.XL} XL</p>
-          <p class="value">${entry.XXL} XXL</p>
+          <p class="value"> Small = ${entry.Small} Pieces</p>
+          <p class="value">$ Meduium = {entry.Medium} Pieces</p>
+          <p class="value">$ Large = {entry.Large} Pieces</p>
+          <p class="value">$ XL = {entry.XL} Pieces</p>
+          <p class="value">$ XXL = {entry.XXL} Pieces</p>
         `;
         container.appendChild(card);
       });
