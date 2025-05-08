@@ -1,132 +1,46 @@
+/* Center all main content */
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Logo Styling */
+.logo {
+  width: 120px;
+  height: auto;
+  display: block;
+  margin: 0 auto 20px;
+}
+
+/* Intro Text Styling */
+.intro-section {
+  text-align: center;
+  max-width: 600px;
+  margin: 20px auto;
+  font-size: 1rem;
+  background-color: #222;
   padding: 20px;
-  background-color: #111;
+  border-radius: 10px;
   color: white;
 }
 
-h1 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.blinking {
-  animation: blinker 1.2s linear infinite;
-}
-
-@keyframes blinker {
-  50% {
-    opacity: 0;
-  }
-}
-
-/* Carousel Styles */
-#carousel {
-  overflow-x: scroll;
-  scroll-snap-type: x mandatory;
-  display: flex;
-  width: 100%;
-  max-width: 100%;
-  margin-bottom: 20px;
-}
-
-#imageTrack {
-  display: flex;
-  gap: 16px;
-  padding-bottom: 10px;
-}
-
-.carousel-img {
-  width: 300px;
-  height: auto;
-  scroll-snap-align: start;
-  border-radius: 8px;
-  flex-shrink: 0;
-  box-shadow: 0 0 10px rgba(255,255,255,0.1);
-}
-
-/* Info Section */
-.product-info {
-  text-align: center;
-  font-size: 1.2rem;
-  background-color: #222;
-  padding: 15px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-
-footer {
-  text-align: center;
-  margin-top: 2rem;
-}
-
-footer a {
+.intro-section a {
   color: #00bfff;
-  text-decoration: none;
   font-weight: bold;
-}
-
-footer a:hover {
   text-decoration: underline;
 }
 
-.slider {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: smooth;
+/* Footer Enhancements */
+footer h2 {
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+  color: #00bfff;
 }
 
-#carousel-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  margin: 20px auto;
-  max-width: 90vw;
+footer .icon {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 5px;
 }
-
-#carousel {
-  overflow-x: scroll;
-  scroll-behavior: smooth;
-  display: flex;
-  max-width: 600px;
-  margin: 0 20px;
-}
-
-#imageTrack {
-  display: flex;
-  gap: 16px;
-}
-
-.carousel-img {
-  width: 200px;
-  height: auto;
-  border-radius: 8px;
-  flex-shrink: 0;
-}
-
-.product-info {
-  text-align: center;
-  font-size: 1.2rem;
-  margin-top: 20px;
-}
-
-.nav {
-  background-color: #333;
-  color: white;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  padding: 10px;
-  border-radius: 50%;
-  user-select: none;
-}
-
-.nav:hover {
-  background-color: #555;
-}
-
