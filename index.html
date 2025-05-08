@@ -30,43 +30,53 @@
   </footer>
 
   <script>
-    let productData = [];
+  fetch("https://script.google.com/macros/s/AKfycbxdF9ug4RcdIU0RmRlB5IjdvQbn-ajCnYKSuOsUGFJwjbrwwLjrQdgBVannl1Xtuw7Qsw/exec")
+    .then(res => res.json())
+    .then(data => {
+      const imageTrack = document.getElementById("imageTrack");
+      const info = document.getElementById("productInfo");
 
-    fetch("https://script.google.com/macros/s/AKfycbxdF9ug4RcdIU0RmRlB5IjdvQbn-ajCnYKSuOsUGFJwjbrwwLjrQdgBVannl1Xtuw7Qsw/exec")
-      .then(res => res.json())
-      .then(data => {
-        productData = data;
-        const carousel = document.getElementById("carousel");
-        data.forEach((entry, index) => {
-          const img = document.createElement("img");
-          img.src = entry.ImageURL;
-          img.alt = `Product ${index + 1}`;
-          img.className = "carousel-image";
-          img.dataset.index = index;
-          carousel.appendChild(img);
-        });
-        updateProductInfo(0);
-      })
-      .catch(err => console.error("Error loading data", err));
+      data.forEach((entry, index) => {
+        const img = document.createElement("img");
+        img.src = entry.ImageURL;
+        img.alt = "Product Image";
+        img.dataset.index = index;
+        img.classList.add("carousel-img");
+        imageTrack.appendChild(img);
+      });
 
-    function updateProductInfo(index) {
-      const entry = productData[index];
-      if (!entry) return;
-      document.getElementById("smallVal").textContent = entry.Small;
-      document.getElementById("mediumVal").textContent = entry.Medium;
-      document.getElementById("largeVal").textContent = entry.Large;
-      document.getElementById("xlVal").textContent = entry.XL;
-      document.getElementById("xxlVal").textContent = entry.XXL;
-    }
+      // Show initial product info
+      showProductInfo(data[0]);
 
-    document.addEventListener("scroll", () => {
-      const carousel = document.getElementById("carousel");
-      const scrollLeft = carousel.scrollLeft;
-      const childWidth = carousel.firstChild?.offsetWidth || 1;
-      const index = Math.round(scrollLeft / childWidth);
-      updateProductInfo(index);
+      // Observe scroll and update info dynamically
+      const images = document.querySelectorAll(".carousel-img");
+      let currentIndex = 0;
+
+      document.getElementById("carousel").addEventListener("scroll", () => {
+        const scrollLeft = document.getElementById("carousel").scrollLeft;
+        const imageWidth = images[0].offsetWidth + 10; // includes margin
+        const newIndex = Math.round(scrollLeft / imageWidth);
+
+        if (newIndex !== currentIndex && data[newIndex]) {
+          currentIndex = newIndex;
+          showProductInfo(data[currentIndex]);
+        }
+      });
+
+      function showProductInfo(entry) {
+        info.innerHTML = `
+          <p class="value">Small = ${entry.Small} Pieces</p>
+          <p class="value">Medium = ${entry.Medium} Pieces</p>
+          <p class="value">Large = ${entry.Large} Pieces</p>
+          <p class="value">XL = ${entry.XL} Pieces</p>
+          <p class="value">XXL = ${entry.XXL} Pieces</p>
+        `;
+      }
+    })
+    .catch(err => {
+      console.error("Error loading data", err);
     });
-  </script>
+</script>
 
 </body>
 </html>
