@@ -28,6 +28,7 @@
 
   <!-- Script -->
   <script>
+    window.onload = function () {
     fetch("https://script.google.com/macros/s/AKfycbxdF9ug4RcdIU0RmRlB5IjdvQbn-ajCnYKSuOsUGFJwjbrwwLjrQdgBVannl1Xtuw7Qsw/exec")
       .then(res => res.json())
       .then(data => {
@@ -75,6 +76,7 @@
       .catch(err => {
         console.error("Error loading data", err);
       });
+    };
   </script>
 
 </body>
