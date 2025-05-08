@@ -2,21 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Live Data Dashboard</title>
+  <title>Donnie Store Tanzania</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <h1 class="blinking">DONNIE STORE TANZANIA</h1>
-  <div id="dashboard"></div>
+  <div class="container">
+    <!-- Logo -->
+    <img src="logo.jpg" alt="DonnieStoreTZ Logo" class="logo" />
 
-  <footer>
-    <p>
-      <a href="https://www.instagram.com/donnie_store_tz?igsh=MTI4cTR1aHVxbjZ2eA==">Instagram</a> |
-      <a href="https://wa.me/255764669212" target="_blank">WhatsApp</a>
+    <!-- Heading -->
+    <h1 class="blinking">DONNIE STORE TANZANIA</h1>
+
+    <!-- Introduction Section -->
+    <p class="intro">
+      Karibuni sana Duka letu la DonniestoreTZ ujipatie bidhaa bora mjini Daslam. Tunapatikana Kariakoo mtaa wa Kongo na Narungombe.
+      Ukishashuka mwendo kasi wa Msimbazi ukaingia mtaa wa Narungombe moja kwa moja hadi ghorofa la kwanza unakua ushafika. <br><br>
+      Kwa wale wanaotumia Google Maps, <a href="https://maps.google.com" target="_blank">bonyeza link hii kutufikia</a>.
     </p>
-  </footer>
+
+    <!-- Dashboard from Google Sheets -->
+    <div id="dashboard"></div>
+
+    <!-- Contact Section -->
+    <div class="contact">
+      <h2>Wasiliana nasi</h2>
+      <p>
+        <a href="https://wa.me/255764669212" target="_blank">📱 Whatsapp</a> |
+        <a href="https://www.instagram.com/donnie_store_tz?igsh=MTI4cTR1aHVxbjZ2eA==">📸 Instagram</a>
+      </p>
+    </div>
+  </div>
 
   <script>
     fetch("https://script.google.com/macros/s/AKfycbxdF9ug4RcdIU0RmRlB5IjdvQbn-ajCnYKSuOsUGFJwjbrwwLjrQdgBVannl1Xtuw7Qsw/exec")
@@ -28,11 +45,12 @@
           card.className = "card";
           card.innerHTML = `
             <img src="${entry.ImageURL}" alt="${entry.Price}" />
-            <p class="value"> Small = ${entry.Small} Pieces</p>
-            <p class="value"> Medium = ${entry.Medium} Pieces</p>
-            <p class="value"> Large = ${entry.Large} Pieces</p>
-            <p class="value"> XL = ${entry.XL} Pieces</p>
-            <p class="value"> XXL = ${entry.XXL} Pieces</p>
+            <h2>${entry.Price}</h2>
+            <p class="value">Small = ${entry.Small} Pieces</p>
+            <p class="value">Medium = ${entry.Medium} Pieces</p>
+            <p class="value">Large = ${entry.Large} Pieces</p>
+            <p class="value">XL = ${entry.XL} Pieces</p>
+            <p class="value">XXL = ${entry.XXL} Pieces</p>
           `;
           container.appendChild(card);
         });
