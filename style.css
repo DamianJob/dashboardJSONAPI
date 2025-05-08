@@ -54,22 +54,40 @@ footer .icon {
   margin-right: 5px;
 }
 
+#carousel-container {
+  position: relative;
+  max-width: 300px; /* Make this match the image width */
+  overflow: hidden;
+  margin: 20px auto;
+}
+
 #carousel {
+  display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  display: flex;
-  max-width: 600px;
-  margin: 0 20px;
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+#imageTrack {
+  display: flex;
 }
 
 .carousel-img {
-  width: 200px;
-  height: auto;
-  border-radius: 8px;
+  width: 300px; /* Match this to carousel-container */
   flex-shrink: 0;
-  scroll-snap-align: start;
-  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+  scroll-snap-align: center;
+  border-radius: 10px;
 }
+
+#carousel::-webkit-scrollbar {
+  display: none;
+}
+#carousel {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+
 
 
