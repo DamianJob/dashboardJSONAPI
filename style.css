@@ -80,6 +80,7 @@ footer .icon {
   width: 300px;
   flex-shrink: 0;
   scroll-snap-align:
+    }
 
 .instruction-text {
   max-width: 600px;
