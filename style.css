@@ -13,7 +13,6 @@ body {
   align-items: center;
 }
 
-
 /* Logo Styling */
 .logo {
   width: 120px;
@@ -54,11 +53,15 @@ footer .icon {
   margin-right: 5px;
 }
 
+/* Carousel Section */
 #carousel-container {
   position: relative;
-  max-width: 300px; /* Make this match the image width */
+  max-width: 300px;
   overflow: hidden;
   margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #carousel {
@@ -74,20 +77,6 @@ footer .icon {
 }
 
 .carousel-img {
-  width: 300px; /* Match this to carousel-container */
+  width: 300px;
   flex-shrink: 0;
-  scroll-snap-align: center;
-  border-radius: 10px;
-}
-
-#carousel::-webkit-scrollbar {
-  display: none;
-}
-#carousel {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
-
-
-
+  scroll-snap-align:
